@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Spoofing Filter",
+  "description": "This extension prevents against phishing scheme in which attackers link to a data url to inject malicious code, by blocking all clickable links to data urls.",
+  "version": "1.5",
+  "default_locale": "en",
+  "icons": { "128": "icons/128.png", "500": "icons/500.png" },
+  "author": "Rohit, Venus",
+  "browser_action": {
+    "default_icon": "icons/128.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "file://*/*"],
+      "js": ["src/jquery-3.6.0.min.js", "src/contentscript.js"]
+    }
+  ],
+  "permissions": ["tabs", "http://*/*", "https://*/*", "file://*/*"]
+}
